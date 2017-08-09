@@ -14,7 +14,7 @@ const removeFlowTypes = (source, target) => {
 }
 
 const unflow = (source, dir) => {
-  const target = source.replace('flow', 'dist')
+  const target = source.replace('src', 'dist')
   const ext = '.js'
   return Promise.resolve().then(() => {
     if (!utils.dirExists(target)) {

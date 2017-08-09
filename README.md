@@ -1,2 +1,2 @@
 # unflow_gulp
-unflow plugin written with gulp.js 
+Unflow plugin is for removing flow types for node.js projects. Unflow plugin written with gulp.js. 

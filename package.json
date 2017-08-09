@@ -1,0 +1,43 @@
+{
+  "name": "unflow_gulp",
+  "version": "1.0.0",
+  "description": "Unflow plugin is for removing flow types for node.js projects. Unflow plugin written with gulp.js. ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narekhovhannisyan/unflow_gulp.git"
+  },
+  "keywords": [
+    "Unflow",
+    "plugin",
+    "is",
+    "for",
+    "removing",
+    "flow",
+    "types",
+    "for",
+    "node.js",
+    "projects.",
+    "Unflow",
+    "plugin",
+    "written",
+    "with",
+    "gulp.js."
+  ],
+  "author": "Narek Hovhannisyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narekhovhannisyan/unflow_gulp/issues"
+  },
+  "homepage": "https://github.com/narekhovhannisyan/unflow_gulp#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "flow-remove-types": "^1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

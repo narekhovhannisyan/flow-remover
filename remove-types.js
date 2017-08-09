@@ -34,6 +34,7 @@ const unflow = (source, dir) => {
 }
 
 const unflowAsync = (source, dir) => {
+  console.log(Date.now())
   return Promise.resolve().then(() => unflow(source, dir))
 }
 

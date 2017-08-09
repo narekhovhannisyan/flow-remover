@@ -6,5 +6,5 @@ const removeTypes = require('./remove-types')
 const source = './flow'
 
 gulp.task('default', () => {
-  utils.callRecursive(utils.recursiveScan(source, removeTypes.unflowAsync), 1000 * 30) //every half minute
+  return utils.callRecursive(utils.recursiveScan(source, removeTypes.unflowAsync), 1000 * 30) //every half minute
 })

@@ -1,7 +1,7 @@
 {
   "name": "flow-remover",
   "version": "1.0.6",
-  "description": "Unflow plugin is for removing flow types for node.js projects. Unflow plugin written with gulp.js. ",
+  "description": "This package is for removing flow types from node.js projects. Flow-remover plugin supports VS Code tasks via Gulp., ",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,11 @@
     "url": "git+https://github.com/narekhovhannisyan/flow-remover.git"
   },
   "keywords": [
+    "module",
+    "task",
+    "package",
+    "flow-remover",
+    "vscode",
     "Unflow",
     "plugin",
     "is",
@@ -18,13 +23,10 @@
     "removing",
     "flow",
     "types",
-    "for",
+    "from",
     "node.js",
     "projects.",
-    "Unflow",
     "plugin",
-    "written",
-    "with",
     "gulp.js"
   ],
   "author": "Narek Hovhannisyan",

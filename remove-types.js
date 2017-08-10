@@ -34,7 +34,6 @@ const unflow = (source, dir) => {
 }
 
 const unflowAsync = (source, dir) => {
-  console.log(Date.now())
   return unflow(source, dir)
 }
 

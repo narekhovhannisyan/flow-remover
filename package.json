@@ -1,6 +1,6 @@
 {
   "name": "flow-remover",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Unflow plugin is for removing flow types for node.js projects. Unflow plugin written with gulp.js. ",
   "main": "gulpfile.js",
   "scripts": {

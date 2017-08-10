@@ -7,6 +7,7 @@ After running flow-remover you will get flow removed project in "dist" folder.
 
 This plugin works with VSCode Tasks. To use flow-remover with tasks create in root of your project ".vscode" folder, after that create tasks.json file in ".vscode" folder
 with this content (just copy it). Also you can get ".vscode/tasks.json" from node_modules/flow-remover firectory and copy it to your projects root.
+
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format

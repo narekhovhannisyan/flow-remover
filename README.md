@@ -11,7 +11,7 @@ with this content (just copy it). Also you can get ".vscode/tasks.json" from nod
 
 {
     "version": "2.0.0",
-    "command": "flow-remover",
+    "command": "gulp",
     "type": "shell",
     "options": {
         "cwd": "${workspaceRoot}/node_modules/flow-remover"

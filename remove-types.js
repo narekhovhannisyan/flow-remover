@@ -8,7 +8,7 @@ const removeFlowTypes = (source, target) => {
   /* if source is modified, then change file, otherwise do nothing! */
   if (utils.checkLastModifiedDate(target) < utils.checkLastModifiedDate(source)) {
     const input = fs.readFileSync(source, 'utf8')
-    const output = flowRemoveTypes(input)
+    const output = flowRemoveTypes(input, { pretty: true })
     fs.writeFileSync(target, output.toString())
   }
 }

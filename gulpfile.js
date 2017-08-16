@@ -1,4 +1,5 @@
 const gulp = require('gulp')
+const watch = require('gulp-watch')
 const utils = require('./utils')
 const Promise = require('bluebird')
 const removeTypes = require('./remove-types')
@@ -8,12 +9,16 @@ const root = path.resolve(__dirname).split('node_modules')[0]
 const source = root + '\src'
 
 gulp.task('default', () => {
-  try {
-    if (utils.dirExists(source) && utils.dirExists(source.replace('src', 'dist'))) {
-      console.log('Everything is ok with folders! :)')
-      return utils.callRecursive(utils.recursiveScan(source, removeTypes.unflowAsync), 1000 * 30) //every half minute
-    } else throw e
-  } catch (e) {
-    console.error
-  }
+  utils.lookupOrCreate(source.replace('src', 'dist')).then(() => {
+    
+    try {
+      if (utils.dirExists(source) && utils.dirExists(source.replace('src', 'dist'))) {
+        console.log('Everything is ok with folders! :)')
+        return removeTypes.runFlowRemover(source, source.replace('src', 'dist'))
+      } else throw e
+    } catch (e) {
+      console.error
+    }
+  })
 })
+

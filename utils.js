@@ -7,6 +7,19 @@ const callRecursive = (fn, delay) => {
   return fn().delay(delay).then(() => callRecursive(fn, delay))
 }
 
+const addTaskConfig = () => {
+}
+
+const lookupOrCreate = folder => {
+  if (!dirExists(folder)) {
+    console.log('dist folder has been created!')
+    return Promise.resolve().then(createDirectory(folder))
+  } else {
+    console.log('dist folder already exists!')
+    return Promise.resolve()
+  }
+}
+
 const copyFile = (source, target) => {
   /* if source is modified, then copy file, otherwise do nothing! */
   return new Promise(resolve => {
@@ -56,5 +69,6 @@ module.exports = {
   dirExists,
   checkLastModifiedDate,
   recursiveScan,
-  callRecursive
+  callRecursive,
+  lookupOrCreate
 }

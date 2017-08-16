@@ -13,6 +13,12 @@ const removeFlowTypes = (source, target) => {
   }
 }
 
+const runFlowRemover = (source, dir) => {
+  return utils.callRecursive(() => {
+    return utils.recursiveScan(source, unflowAsync(source, dir))
+  }, 1000 * 30)
+}
+  
 const unflow = (source, dir) => {
   const target = source.replace('src', 'dist')
   const ext = '.js'
@@ -37,7 +43,7 @@ const unflowAsync = (source, dir) => {
   return unflow(source, dir)
 }
 
-
 module.exports = {
-  unflowAsync
+  unflowAsync,
+  runFlowRemover
 }

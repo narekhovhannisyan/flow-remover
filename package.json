@@ -38,9 +38,11 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "flow-remove-types": "^1.2.1",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11"
   }
 }

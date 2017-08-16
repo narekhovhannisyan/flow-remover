@@ -3,19 +3,12 @@ const fs = require('fs')
 const flowRemoveTypes = require('flow-remove-types')
 const path = require('path')
 
-const callRecursive = (fn, delay) => {
-  return fn().delay(delay).then(() => callRecursive(fn, delay))
-}
-
-const addTaskConfig = () => {
-}
+const addTaskConfig = () => {}
 
 const lookupOrCreate = folder => {
   if (!dirExists(folder)) {
-    console.log('dist folder has been created!')
     return Promise.resolve().then(createDirectory(folder))
   } else {
-    console.log('dist folder already exists!')
     return Promise.resolve()
   }
 }
@@ -69,6 +62,5 @@ module.exports = {
   dirExists,
   checkLastModifiedDate,
   recursiveScan,
-  callRecursive,
   lookupOrCreate
 }

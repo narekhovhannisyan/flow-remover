@@ -10,15 +10,15 @@ const source = root + '\src'
 
 gulp.task('default', () => {
   utils.lookupOrCreate(source.replace('src', 'dist')).then(() => {
-    
-    try {
-      if (utils.dirExists(source) && utils.dirExists(source.replace('src', 'dist'))) {
-        console.log('Everything is ok with folders! :)')
-        return removeTypes.runFlowRemover(source, source.replace('src', 'dist'))
-      } else throw e
-    } catch (e) {
-      console.error
-    }
+    gulp.watch('../../src/**/**', () => {
+      try {
+        if (utils.dirExists(source) && utils.dirExists(source.replace('src', 'dist'))) {
+          console.log('running flow remover')
+          return utils.recursiveScan(source, removeTypes.unflowAsync)
+        } else throw e
+      } catch (e) {
+        console.error
+      }
+    })
   })
 })
-

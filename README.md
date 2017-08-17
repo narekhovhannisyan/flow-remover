@@ -2,6 +2,7 @@
 This package is for removing flow types from node.js projects. Flow-remover plugin supports VS Code tasks via Gulp. 
 
 
+
 ## Get Started!
 
 Use the command line:
@@ -38,6 +39,6 @@ Or you can get ".vscode/tasks.json" from node_modules/flow-remover directory and
 3) Run gulp from tasks
 
 After running flow-remover task you will get flow removed project in "dist" folder("dist" folder is generated automatically). Works on save.
-Also you can run task via command line
+Also you can run task via command line.
 
 If finding some issues please report them in https://github.com/narekhovhannisyan/flow-remover/issues

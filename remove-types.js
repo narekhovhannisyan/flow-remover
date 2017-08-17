@@ -4,6 +4,12 @@ const path = require('path')
 const Promise = require('bluebird')
 const utils = require('./utils')
 
+const createAndScan = source => {
+  return Promise.resolve().then(() => {
+    utils.lookupOrCreate(source.replace('src', 'dist')).then(utils.recursiveScan(source, unflowAsync))
+  })
+}
+
 const removeFlowTypes = (source, target) => {
   /* if source is modified, then change file, otherwise do nothing! */
   if (utils.checkLastModifiedDate(target) < utils.checkLastModifiedDate(source)) {
@@ -17,9 +23,6 @@ const unflow = (source, dir) => {
   const target = source.replace('src', 'dist')
   const ext = '.js'
   return Promise.resolve().then(() => {
-    // if (!utils.dirExists(target)) {
-    //   utils.createDirectory(target)
-    // }
     if (fs.statSync(source).isDirectory()) {
       /* cheking if source firectory exists in destination directory otherwise do nothing */
       if (!utils.dirExists(target)) {
@@ -38,5 +41,6 @@ const unflowAsync = (source, dir) => {
 }
 
 module.exports = {
-  unflowAsync
+  unflowAsync,
+  createAndScan
 }

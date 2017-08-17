@@ -3,7 +3,9 @@ const fs = require('fs')
 const flowRemoveTypes = require('flow-remove-types')
 const path = require('path')
 
-const addTaskConfig = () => {}
+const addTaskConfig = () => {
+  //need to be implemented :)
+}
 
 const lookupOrCreate = folder => {
   if (!dirExists(folder)) {

@@ -1,34 +1,56 @@
 const fs = require('fs')
-const flowRemoveTypes = require('flow-remove-types')
 const path = require('path')
+
 const Promise = require('bluebird')
+const flowRemoveTypes = require('flow-remove-types')
+
 const utils = require('./utils')
 
+/**
+ * @param source - The source to be scanned.
+ * @returns {Promise<T>}
+ * @description Look if there is src folder. If there is such one does nothing, otherwise creates one.
+ *  Then calls `recursiveScan` function for current `source` with `unflow` processor.
+ */
 const createAndScan = source => {
-  return Promise.resolve().then(() => {
-    utils.lookupOrCreate(source.replace('src', 'dist')).then(utils.recursiveScan(source, unflowAsync))
-  })
+  return Promise.resolve()
+      .then(() => {
+        utils.lookupOrCreate(source.replace('src', 'dist'))
+            .then(utils.recursiveScan(source, unflow))
+      })
 }
 
+/**
+ * @param source - The source of the file.
+ * @param target - The target path of the file.
+ * @description Writes processed file.
+ */
 const removeFlowTypes = (source, target) => {
   /* if source is modified, then change file, otherwise do nothing! */
   if (utils.checkLastModifiedDate(target) < utils.checkLastModifiedDate(source)) {
     const input = fs.readFileSync(source, 'utf8')
     const output = flowRemoveTypes(input, { pretty: true })
+
     fs.writeFileSync(target, output.toString())
   }
 }
 
-const unflow = (source, dir) => {
+/**
+ * @param source - The source of the file.
+ * @returns {Promise<T>}
+ * @description Checks if source is `js` file then calls `removeFlowType`, otherwise copies the file.
+ */
+const unflow = (source) => {
   const target = source.replace('src', 'dist')
   const ext = '.js'
+
   return Promise.resolve().then(() => {
     if (fs.statSync(source).isDirectory()) {
       /* cheking if source firectory exists in destination directory otherwise do nothing */
       if (!utils.dirExists(target)) {
         return utils.createDirectory(target)
       }
-    } else if (fs.statSync(source).isFile() && path.extname(source) == ext) {
+    } else if (fs.statSync(source).isFile() && path.extname(source) === ext) {
       return removeFlowTypes(source, target)
     } else {
       return utils.copyFile(source, target)
@@ -36,11 +58,6 @@ const unflow = (source, dir) => {
   })
 }
 
-const unflowAsync = (source, dir) => {
-  return unflow(source, dir)
-}
-
 module.exports = {
-  unflowAsync,
   createAndScan
 }

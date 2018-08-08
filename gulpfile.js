@@ -1,8 +1,6 @@
 const gulp = require('gulp')
-const watch = require('gulp-watch')
-const utils = require('./utils')
-const Promise = require('bluebird')
-const removeTypes = require('./remove-types')
+const utils = require('./src/utils')
+const removeTypes = require('./src/remove-types')
 const path = require('path')
 
 const root = path.resolve(__dirname).split('node_modules')[0]

@@ -1,40 +1,11 @@
 {
   "name": "flow-remover",
-  "version": "1.0.14",
   "description": "This package is for removing flow types from node.js projects. Flow-remover plugin supports VS Code tasks via Gulp., ",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/narekhovhannisyan/flow-remover.git"
-  },
-  "keywords": [
-    "module",
-    "task",
-    "package",
-    "flow-remover",
-    "vscode",
-    "Unflow",
-    "plugin",
-    "is",
-    "for",
-    "removing",
-    "flow",
-    "types",
-    "from",
-    "node.js",
-    "projects.",
-    "plugin",
-    "gulp.js"
-  ],
+  "version": "1.0.14",
   "author": "Narek Hovhannisyan",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/narekhovhannisyan/flow-remover/issues"
   },
-  "homepage": "https://github.com/narekhovhannisyan/flow-remover#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
     "flow-remove-types": "^1.2.1",
@@ -42,7 +13,45 @@
     "gulp-watch": "^4.3.11"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-watch": "^4.3.11"
+    "@types/node": "16.11.9",
+    "eslint": "8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.1",
+    "fixpack": "4.0.0",
+    "gulp": "4.0.2",
+    "gulp-watch": "5.0.1"
+  },
+  "homepage": "https://github.com/narekhovhannisyan/flow-remover#readme",
+  "keywords": [
+    "Unflow",
+    "flow",
+    "flow-remover",
+    "for",
+    "from",
+    "gulp.js",
+    "is",
+    "module",
+    "node.js",
+    "package",
+    "plugin",
+    "plugin",
+    "projects.",
+    "removing",
+    "task",
+    "types",
+    "vscode"
+  ],
+  "license": "ISC",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narekhovhannisyan/flow-remover.git"
+  },
+  "scripts": {
+    "fix-package": "fixpack",
+    "lint": "eslint .",
+    "test": "jest"
   }
 }

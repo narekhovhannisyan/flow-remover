@@ -7,23 +7,18 @@ const flowRemoveTypes = require('flow-remove-types')
 const utils = require('./utils')
 
 /**
- * @param source - The source to be scanned.
- * @returns {Promise<T>}
- * @description Look if there is src folder. If there is such one does nothing, otherwise creates one.
+ * Look if there is src folder. If there is such one does nothing, otherwise creates one.
  *  Then calls `recursiveScan` function for current `source` with `unflow` processor.
+ * @param source The source to be scanned.
+ * @returns {Promise.<*>}
  */
-const createAndScan = source => {
-  return Promise.resolve()
-      .then(() => {
-        utils.lookupOrCreate(source.replace('src', 'dist'))
-            .then(utils.recursiveScan(source, unflow))
-      })
-}
+const createAndScan = source => utils.lookupOrCreate(source.replace('src', 'dist'))
+  .then(utils.recursiveScan(source, unflow))
 
 /**
- * @param source - The source of the file.
- * @param target - The target path of the file.
- * @description Writes processed file.
+ * Writes processed file.
+ * @param source The source of the file.
+ * @param target The target path of the file.
  */
 const removeFlowTypes = (source, target) => {
   /* if source is modified, then change file, otherwise do nothing! */
@@ -36,9 +31,9 @@ const removeFlowTypes = (source, target) => {
 }
 
 /**
- * @param source - The source of the file.
- * @returns {Promise<T>}
- * @description Checks if source is `js` file then calls `removeFlowType`, otherwise copies the file.
+ * Checks if source is `js` file then calls `removeFlowType`, otherwise copies the file.
+ * @param source The source of the file.
+ * @returns {Promise.<*>}
  */
 const unflow = (source) => {
   const target = source.replace('src', 'dist')

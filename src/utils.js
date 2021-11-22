@@ -4,9 +4,8 @@ const path = require('path')
 const Promise = require('bluebird')
 
 /**
- * @param folder - The folder path.
+ * @param folder The folder path.
  * @returns {Promise.<>}
- * @description
  */
 const lookupOrCreate = folder => Promise.resolve()
     .then(() => {
@@ -17,10 +16,10 @@ const lookupOrCreate = folder => Promise.resolve()
 
 
 /**
- * @param source - The source of the file.
- * @param target - The target path.
+ * If source is modified, then copy file, otherwise does nothing!
+ * @param source The source of the file.
+ * @param target The target path.
  * @returns {Promise.<>}
- * @description If source is modified, then copy file, otherwise does nothing!
  */
 const copyFile = (source, target) =>
     new Promise(resolve => {
@@ -37,18 +36,18 @@ const copyFile = (source, target) =>
     })
 
 /**
- * @param target - The target path.
+ * Wrapper for `mkdirSync` function.
+ * @param target The target path.
  * @returns {*}
- * @description Wrapper for `mkdirSync` function.
  */
 const createDirectory = target => {
   return fs.mkdirSync(target)
 }
 
 /**
+ * Wrapper for `existsSync` function.
  * @param path - The path to check.
  * @returns {*}
- * @description Wrapper for `existsSync` function.
  */
 const dirExists = path => {
   return fs.existsSync(path)
@@ -63,8 +62,8 @@ const checkLastModifiedDate = source => {
 }
 
 /**
- * @param source - The source to scan.
- * @param processor - Function to use while scanning.
+ * @param source The source to scan.
+ * @param processor Function to use while scanning.
  * @returns {Array}
  */
 const recursiveScan = (source, processor) => {
@@ -80,6 +79,7 @@ const recursiveScan = (source, processor) => {
     }
   }
   const dirs = fs.readdirSync(source)
+  
   return Promise.map(dirs, process)
 }
 
